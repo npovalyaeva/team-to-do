@@ -5,12 +5,69 @@
              x:Class="TeamToDo.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-        <Button Text="Sign in" Clicked="Button_Clicked" />
-        <Button Text="Sign up" Clicked="Button_Clicked" />
+        <Label 
+            TextColor="#ed8a19" 
+            FontSize = "48" 
+            Text = "Aloha!"
+            Margin = "90" 
+            VerticalTextAlignment="Center" 
+            HorizontalTextAlignment="Center" >
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments = "x:String" >
+                    <On Platform="Android" Value = "OpenSans-Light.ttf#OpenSans-Light" />
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
+
+        <Entry 
+            TextColor = "#28384c"
+            Placeholder = "Position"
+            Margin = "10" >
+            <Entry.FontFamily>
+                <OnPlatform x:TypeArguments = "x:String">
+                    <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                </OnPlatform>
+            </Entry.FontFamily>
+        </Entry>
+
+        <Entry 
+            TextColor = "#28384c" 
+            WidthRequest= "500"
+            IsPassword = "true" 
+            Margin = "10"
+            Placeholder = "Password" >
+            <Entry.FontFamily>
+                <OnPlatform x:TypeArguments = "x:String">
+                    <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                </OnPlatform>
+            </Entry.FontFamily>
+        </Entry>
+
+        <Button 
+            Text = "Sign in" 
+            Clicked = "Button_Clicked" 
+            BackgroundColor = "#25ae88" 
+            TextColor = "#e7eced"
+            Margin = "10" >
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments = "x:String">
+                    <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                </OnPlatform>
+            </Button.FontFamily>
+        </Button>
+
+        <Button 
+            Text = "Sign up" 
+            Clicked = "Button_Clicked" 
+            BackgroundColor = "#e7eced" 
+            TextColor = "#dd352e" 
+            Margin = "10" >
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments = "x:String">
+                    <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                </OnPlatform>
+            </Button.FontFamily>
+        </Button>
     </StackLayout>
 
 </ContentPage>
