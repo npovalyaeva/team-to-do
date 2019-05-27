@@ -24,7 +24,7 @@ namespace TeamToDo.Helpers
             await Firebase.Child("Users").PostAsync(user);
         }
 
-        public static async Task<User> GetUserByUsernameAndPassword(string username, string password)
+        public static async Task<User> GetUserByUsernameAndPassword(string username, string passwordHash)
         {
             return (await Firebase
                  .Child("Users")
@@ -33,8 +33,8 @@ namespace TeamToDo.Helpers
                      Username = item.Object.Username,
                      Password = item.Object.Password,
                      RoleId = item.Object.RoleId,
-                     Priority = item.Object.Priority
-                 }).FirstOrDefault(x => x.Username == username && x.Password == password);
+                     AccessLevel = item.Object.AccessLevel
+                 }).FirstOrDefault(x => x.Username == username && x.Password == passwordHash);
         }
     }
 }

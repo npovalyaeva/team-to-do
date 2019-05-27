@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using TeamToDo.Converters;
 using TeamToDo.Helpers;
 using TeamToDo.Models;
+using TeamToDo.Pages;
+
 using Xamarin.Forms;
 
 namespace TeamToDo
@@ -21,7 +20,6 @@ namespace TeamToDo
             InitializeComponent();
         }
 
-        int count = 0;
         private async void SignIn_Button_Clicked(object sender, System.EventArgs e)
         {
             string username = UsernameEntry.Text;
@@ -29,27 +27,27 @@ namespace TeamToDo
 
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
-                await DisplayAlert("Action Error", "Empty username or password", "OK");
+                await DisplayAlert("", "Empty username or password", "OK");
                 return;
             }
 
-            //var user = await UserHelper.GetUserByUsernameAndPassword(username, password);
-            //if (user == null)
-            //{
-            //    await DisplayAlert("Error", "Invalid login or password", "OK");
-            //    Loading.IsRunning = false;
-            //    return;
-            //}
-
-            var user = new User
+            var user = await UserHelper.GetUserByUsernameAndPassword(username, Hash.FindHash(password));
+            if (user == null)
             {
-                Username = UsernameEntry.Text,
-                Password = Hash.FindHash(PasswordEntry.Text),
-                RoleId = 1,
-                Priority = 8
-            };
+                await DisplayAlert("", "Incorrect username or password", "OK");
+                return;
+            }
+            
+            SessionState.CurrentUser = user;
+            SessionState.CurrentRoleId = user.RoleId;
+            SessionState.CurrentAccessLevel = user.AccessLevel;
 
-            UserHelper.AddUser(user);
+            await Navigation.PushAsync(new TasksListPage());
+        }
+
+        private async void SignUp_Button_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new SignUpPage());
         }
     }
 }

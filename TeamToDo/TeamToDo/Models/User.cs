@@ -12,6 +12,6 @@ namespace TeamToDo.Models
 
         public int RoleId { get; set; }
 
-        public int Priority { get; set; }
+        public int AccessLevel { get; set; }
     }
 }

@@ -1,15 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:TeamToDo"
-             x:Class="TeamToDo.MainPage">
-
+             x:Class="TeamToDo.Pages.SignUpPage">
     <StackLayout>
         <Label 
-            TextColor="#ed8a19" 
-            FontSize = "48" 
-            Text = "Aloha!"
-            Margin = "90" 
+            TextColor="#dd352e" 
+            FontSize = "36" 
+            Text = "Who are you?"
+            Margin = "50" 
             VerticalTextAlignment="Center" 
             HorizontalTextAlignment="Center" >
             <Label.FontFamily>
@@ -45,9 +43,43 @@
             </Entry.FontFamily>
         </Entry>
 
+        <Picker
+            x:Name = "RolePicker"
+            Title="Role"
+            TextColor = "#28384c" 
+            WidthRequest= "500"
+            Margin = "10">
+            <Picker.Items>
+                <x:String>Front End developer</x:String>
+                <x:String>Network engineer</x:String>
+                <x:String>Project manager</x:String>
+                <x:String>Quality assurance</x:String>
+                <x:String>Software engineer</x:String>
+                <x:String>Team leader</x:String>
+                <x:String>Web developer</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Picker
+            x:Name = "AccessLevelPicker"
+            Title="Access Level"
+            TextColor = "#28384c"
+            WidthRequest= "500"
+            Margin = "10">
+            <Picker.Items>
+                <x:String>Only read role tasks</x:String>
+                <x:String>Read and update role tasks</x:String>
+                <x:String>Create, read and update role tasks</x:String>
+                <x:String>Only read all tasks</x:String>
+                <x:String>Read and update all tasks</x:String>
+                <x:String>Create, read and update all tasks</x:String>
+                <x:String>Unlimited access rights</x:String>
+            </Picker.Items>
+        </Picker>
+
         <Button 
-            Text = "Sign in" 
-            Clicked = "SignIn_Button_Clicked" 
+            Text = "Sign up" 
+            Clicked = "SignUp_Button_Clicked" 
             BackgroundColor = "#25ae88" 
             TextColor = "#e7eced"
             Margin = "10" >
@@ -57,19 +89,5 @@
                 </OnPlatform>
             </Button.FontFamily>
         </Button>
-
-        <Button 
-            Text = "Sign up" 
-            Clicked = "SignUp_Button_Clicked" 
-            BackgroundColor = "#e7eced" 
-            TextColor = "#dd352e" 
-            Margin = "10" >
-            <Button.FontFamily>
-                <OnPlatform x:TypeArguments = "x:String">
-                    <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
-                </OnPlatform>
-            </Button.FontFamily>
-        </Button>
     </StackLayout>
-
 </ContentPage>
