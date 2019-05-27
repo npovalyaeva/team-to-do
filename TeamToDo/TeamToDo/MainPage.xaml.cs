@@ -42,7 +42,7 @@ namespace TeamToDo
             SessionState.CurrentRoleId = user.RoleId;
             SessionState.CurrentAccessLevel = user.AccessLevel;
 
-            await Navigation.PushAsync(new TasksListPage());
+            await Navigation.PushAsync(new ListOfTabsPage());
         }
 
         private async void SignUp_Button_Clicked(object sender, System.EventArgs e)

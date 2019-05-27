@@ -10,14 +10,15 @@ using Xamarin.Forms.Xaml;
 namespace TeamToDo.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TasksListPage : ContentPage
+    public partial class ListOfTabsPage : TabbedPage
     {
-        public TasksListPage()
+        public ListOfTabsPage()
         {
             InitializeComponent();
+            ToolbarItems.Add(new ToolbarItem("Logout", null, OnBackPressed));
         }
 
-        private async void Logout_Button_Clicked(object sender, System.EventArgs e)
+        private async void OnBackPressed()
         {
             await Navigation.PopToRootAsync(true);
         }

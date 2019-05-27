@@ -67,10 +67,10 @@
             WidthRequest= "500"
             Margin = "10">
             <Picker.Items>
-                <x:String>Only read role tasks</x:String>
+                <x:String>Read role tasks only</x:String>
                 <x:String>Read and update role tasks</x:String>
                 <x:String>Create, read and update role tasks</x:String>
-                <x:String>Only read all tasks</x:String>
+                <x:String>Read all tasks only</x:String>
                 <x:String>Read and update all tasks</x:String>
                 <x:String>Create, read and update all tasks</x:String>
                 <x:String>Unlimited access rights</x:String>
@@ -80,7 +80,7 @@
         <Button 
             Text = "Sign up" 
             Clicked = "SignUp_Button_Clicked" 
-            BackgroundColor = "#25ae88" 
+            BackgroundColor = "#366db6" 
             TextColor = "#e7eced"
             Margin = "10" >
             <Button.FontFamily>
