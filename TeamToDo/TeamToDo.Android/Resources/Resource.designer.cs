@@ -6347,6 +6347,9 @@ namespace TeamToDo.Droid
 			// aapt resource value: 0x7f0d0191
 			public const int AppCompatDialogStyle = 2131558801;
 			
+			// aapt resource value: 0x7f0d0195
+			public const int AppToolbarTheme = 2131558805;
+			
 			// aapt resource value: 0x7f0d00a9
 			public const int Base_AlertDialog_AppCompat = 2131558569;
 			

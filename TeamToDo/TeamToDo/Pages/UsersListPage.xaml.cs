@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace TeamToDo.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ListOfTabsPage : TabbedPage
+    public partial class UsersListPage : ContentPage
     {
-        public ListOfTabsPage()
+        public UsersListPage()
         {
             InitializeComponent();
-        }
-
-        private async void Logout_Button_Clicked(object sender, System.EventArgs e)
-        {
-            await Navigation.PopToRootAsync(true);
         }
     }
 }

@@ -10,7 +10,7 @@
     <item name="windowNoTitle">true</item>
     <!--We will be using the toolbar so no need to show ActionBar-->
     <item name="windowActionBar">false</item>
-    
+    <item name="android:actionMenuTextColor">#dd352e</item>
     <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
 
     <!-- colorPrimary is used for the default action bar background -->
@@ -43,5 +43,10 @@
     <item name="android:windowBackground">@drawable/splash_screen</item>
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowFullscreen">true</item>
+  </style>
+
+  <style name="AppToolbarTheme" parent="Theme.AppCompat.NoActionBar">
+    <item name="android:colorBackground">#e7eced</item>
+    <item name="android:textColor">#28384c</item>
   </style>
 </resources>
