@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeamToDo.Converters;
+using TeamToDo.Helpers;
+using TeamToDo.Models;
 using Xamarin.Forms;
 
 namespace TeamToDo
@@ -19,10 +22,34 @@ namespace TeamToDo
         }
 
         int count = 0;
-        void Button_Clicked(object sender, System.EventArgs e)
+        private async void SignIn_Button_Clicked(object sender, System.EventArgs e)
         {
-            count++;
-            ((Button)sender).Text = $"You clicked {count} times.";
+            string username = UsernameEntry.Text;
+            string password = PasswordEntry.Text;
+
+            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+            {
+                await DisplayAlert("Action Error", "Empty username or password", "OK");
+                return;
+            }
+
+            //var user = await UserHelper.GetUserByUsernameAndPassword(username, password);
+            //if (user == null)
+            //{
+            //    await DisplayAlert("Error", "Invalid login or password", "OK");
+            //    Loading.IsRunning = false;
+            //    return;
+            //}
+
+            var user = new User
+            {
+                Username = UsernameEntry.Text,
+                Password = Hash.FindHash(PasswordEntry.Text),
+                RoleId = 1,
+                Priority = 8
+            };
+
+            UserHelper.AddUser(user);
         }
     }
 }

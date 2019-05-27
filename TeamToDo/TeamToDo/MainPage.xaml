@@ -20,8 +20,9 @@
         </Label>
 
         <Entry 
+            x:Name = "UsernameEntry"
             TextColor = "#28384c"
-            Placeholder = "Position"
+            Placeholder = "Username"
             Margin = "10" >
             <Entry.FontFamily>
                 <OnPlatform x:TypeArguments = "x:String">
@@ -31,6 +32,7 @@
         </Entry>
 
         <Entry 
+            x:Name = "PasswordEntry"
             TextColor = "#28384c" 
             WidthRequest= "500"
             IsPassword = "true" 
@@ -45,7 +47,7 @@
 
         <Button 
             Text = "Sign in" 
-            Clicked = "Button_Clicked" 
+            Clicked = "SignIn_Button_Clicked" 
             BackgroundColor = "#25ae88" 
             TextColor = "#e7eced"
             Margin = "10" >
@@ -58,7 +60,7 @@
 
         <Button 
             Text = "Sign up" 
-            Clicked = "Button_Clicked" 
+            Clicked = "SignIn_Button_Clicked" 
             BackgroundColor = "#e7eced" 
             TextColor = "#dd352e" 
             Margin = "10" >
