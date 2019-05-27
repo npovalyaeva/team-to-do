@@ -9,7 +9,7 @@
             TextColor="#ed8a19" 
             FontSize = "48" 
             Text = "Aloha!"
-            Margin = "90" 
+            Margin = "70" 
             VerticalTextAlignment="Center" 
             HorizontalTextAlignment="Center" >
             <Label.FontFamily>

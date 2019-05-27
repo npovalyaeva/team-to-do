@@ -22,12 +22,19 @@ namespace TeamToDo.Pages
         {
             string username = UsernameEntry.Text;
             string password = PasswordEntry.Text;
+            string confirmPassword = ConfirmPasswordEntry.Text;
             int roleId = RolePicker.SelectedIndex;
-            int accessLevel = AccessLevelPicker.SelectedIndex;
+            int accessLevel = 0;
 
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
                 await DisplayAlert("Action Error", "Empty username or password", "OK");
+                return;
+            }
+
+            if (password != confirmPassword)
+            {
+                await DisplayAlert("", "Password and confirm password does not match", "OK");
                 return;
             }
 

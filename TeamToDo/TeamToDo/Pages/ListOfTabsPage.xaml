@@ -3,16 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TeamToDo.Pages.ListOfTabsPage"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             android:TabbedPage.ToolbarPlacement="Bottom" >
-    <TabbedPage.ToolbarItems>
-        <ToolbarItem Text = "Logout   "
-                     Priority = "0"  
-                     Order = "Primary"  
-                     Clicked = "Logout_Button_Clicked"/>
-    </TabbedPage.ToolbarItems>
-    <TabbedPage.Children>
-        <ContentPage Title="Users" />
-        <ContentPage Title="Tasks" />
-        <ContentPage Title="Filter" />
-    </TabbedPage.Children>
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             NavigationPage.HasBackButton="False">
+
 </TabbedPage>

@@ -16,10 +16,5 @@ namespace TeamToDo.Pages
         {
             InitializeComponent();
         }
-
-        private async void Logout_Button_Clicked(object sender, System.EventArgs e)
-        {
-            await Navigation.PopToRootAsync(true);
-        }
     }
 }

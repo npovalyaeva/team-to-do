@@ -46,7 +46,7 @@
   </style>
 
   <style name="AppToolbarTheme" parent="Theme.AppCompat.NoActionBar">
-    <item name="android:colorBackground">#e7eced</item>
+    <item name="android:colorBackground">#000000</item>
     <item name="android:textColor">#28384c</item>
   </style>
 </resources>

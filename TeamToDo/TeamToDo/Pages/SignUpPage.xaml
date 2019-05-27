@@ -43,6 +43,20 @@
             </Entry.FontFamily>
         </Entry>
 
+        <Entry 
+            x:Name = "ConfirmPasswordEntry"
+            TextColor = "#28384c" 
+            WidthRequest= "500"
+            IsPassword = "true" 
+            Margin = "10"
+            Placeholder = "Confirm password" >
+            <Entry.FontFamily>
+                <OnPlatform x:TypeArguments = "x:String">
+                    <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                </OnPlatform>
+            </Entry.FontFamily>
+        </Entry>
+
         <Picker
             x:Name = "RolePicker"
             Title="Role"
@@ -57,23 +71,6 @@
                 <x:String>Software engineer</x:String>
                 <x:String>Team leader</x:String>
                 <x:String>Web developer</x:String>
-            </Picker.Items>
-        </Picker>
-
-        <Picker
-            x:Name = "AccessLevelPicker"
-            Title="Access Level"
-            TextColor = "#28384c"
-            WidthRequest= "500"
-            Margin = "10">
-            <Picker.Items>
-                <x:String>Read role tasks only</x:String>
-                <x:String>Read and update role tasks</x:String>
-                <x:String>Create, read and update role tasks</x:String>
-                <x:String>Read all tasks only</x:String>
-                <x:String>Read and update all tasks</x:String>
-                <x:String>Create, read and update all tasks</x:String>
-                <x:String>Unlimited access rights</x:String>
             </Picker.Items>
         </Picker>
 

@@ -1,12 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TeamToDo.Pages.UsersListPage">
+             x:Class="TeamToDo.Pages.UsersListPage"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label 
+            TextColor="#ed8a19" 
+            FontSize = "40" 
+            Text = "List of all users:"
+            Margin = "10" 
+            VerticalTextAlignment="Center" 
+            HorizontalTextAlignment="Center" >
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments = "x:String" >
+                        <On Platform="Android" Value = "OpenSans-Light.ttf#OpenSans-Light" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <ListView 
+                x:Name="UsersList"
+                HasUnevenRows="True"
+                Margin="10"
+                ItemTapped="MainListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label 
+                                    TextColor="#366db6" 
+                                    FontSize = "24"
+                                    Text="{Binding Username}" >
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments = "x:String" >
+                                            <On Platform="Android" Value = "OpenSans-Light.ttf#OpenSans-Light" />
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                                <Label 
+                                    Text="{Binding Role}" 
+                                    TextColor="#19354b" 
+                                    FontSize = "16">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments = "x:String" >
+                                            <On Platform="Android" Value = "OpenSans-Light.ttf#OpenSans-Light" />
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                                <Label 
+                                    TextColor="#19354b" 
+                                    FontSize = "14"
+                                    Text="{Binding AccessLevel}" >
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments = "x:String" >
+                                            <On Platform="Android" Value = "OpenSans-LightItalic.ttf#OpenSans-LightItalic" />
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button 
+            Text = "Create new user" 
+            Clicked = "CreateNewUser_Button_Clicked" 
+            BackgroundColor = "#25ae88" 
+            TextColor = "#e7eced"
+            Margin = "10" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments = "x:String">
+                        <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
