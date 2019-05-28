@@ -15,5 +15,7 @@ namespace TeamToDo.Models
         public int RoleId { get; set; }
 
         public DateTime Deadline { get; set; }
+
+        public string User { get; set; }
     }
 }

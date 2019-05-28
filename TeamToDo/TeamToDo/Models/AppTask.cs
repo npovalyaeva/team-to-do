@@ -12,6 +12,8 @@ namespace TeamToDo.Models
 
         public string Priority { get; set; }
 
+        public int PriorityNumber { get; set; }
+
         public string Role { get; set; }
 
         public DateTime Deadline { get; set; }
@@ -19,5 +21,7 @@ namespace TeamToDo.Models
         public string PriorityColor { get; set; }
 
         public string DeadlineColor { get; set; }
+
+        public string User { get; set; }
     }
 }

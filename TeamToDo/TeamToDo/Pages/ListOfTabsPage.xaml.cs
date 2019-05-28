@@ -34,14 +34,9 @@ namespace TeamToDo.Pages
                 Title = "Tasks"
             };
 
-            var settingsPage = new NavigationPage(new SettingsPage())
-            {
-                Title = "Settings"
-            };
 
             
             Children.Add(tasksPage);
-            Children.Add(settingsPage);
         }
 
         private async void Logout_Button_Clicked()

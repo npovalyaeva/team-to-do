@@ -71,7 +71,7 @@
         </ListView>
         <Button 
             x:Name="Filter"
-            Text = "Filter" 
+            Text = "Hide overdue tasks" 
             Clicked = "Filter_Button_Clicked" 
             BackgroundColor = "#366db6" 
             TextColor = "#e7eced"

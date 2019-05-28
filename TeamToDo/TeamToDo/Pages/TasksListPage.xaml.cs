@@ -40,7 +40,20 @@ namespace TeamToDo.Pages
 
         private async void Filter_Button_Clicked(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new FilterTasksPage());
+            if (Filter.Text == "Hide overdue tasks")
+            {
+                base.OnAppearing();
+                Tasks = await TaskHelper.GetCurrentTasksByAccessLevelAndRoleId(SessionState.CurrentAccessLevel, SessionState.CurrentRoleId);
+                TasksList.ItemsSource = Tasks;
+                Filter.Text = "Show all tasks";
+            }
+            else
+            {
+                base.OnAppearing();
+                Tasks = await TaskHelper.GetTasksByAccessLevelAndRoleId(SessionState.CurrentAccessLevel, SessionState.CurrentRoleId);
+                TasksList.ItemsSource = Tasks;
+                Filter.Text = "Hide overdue tasks";
+            }
         }
     }
 }

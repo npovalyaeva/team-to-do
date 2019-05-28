@@ -10,7 +10,7 @@
             TextColor="#dd352e" 
             FontSize = "30" 
             Text = "New challenges mean new accomplishments."
-            Margin = "50" 
+            Margin = "20" 
             VerticalTextAlignment="Center" 
             HorizontalTextAlignment="Center" >
                 <Label.FontFamily>
@@ -43,6 +43,17 @@
                     <x:String>Medium</x:String>
                     <x:String>High</x:String>
                     <x:String>Critical</x:String>
+                </Picker.Items>
+            </Picker>
+            <Picker
+            x:Name = "UserPicker"
+            Title="User"
+            TextColor = "#28384c" 
+            WidthRequest= "500"
+            Margin = "10">
+                <Picker.Items>
+                    <x:String>Individual</x:String>
+                    <x:String>Public</x:String>
                 </Picker.Items>
             </Picker>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
@@ -94,6 +105,18 @@
                     </OnPlatform>
                 </Button.FontFamily>
             </Button>
+
+            <Entry 
+            x:Name = "TaskIdEntry"
+            TextColor = "#28384c"
+            Placeholder = "Task"
+            Margin = "10" >
+                <Entry.FontFamily>
+                    <OnPlatform x:TypeArguments = "x:String">
+                        <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                    </OnPlatform>
+                </Entry.FontFamily>
+            </Entry>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

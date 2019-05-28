@@ -24,7 +24,67 @@ namespace TeamToDo.Helpers
             await Firebase.Child("Tasks").PostAsync(task);
         }
 
+        public static async void UpdateTask(Models.Task task)
+        {
+            CloseTask(task.Id);
+            AddTask(task);
+        }
+
         public static async Task<List<AppTask>> GetTasksByAccessLevelAndRoleId(int accessLevel, int roleId)
+        {
+            List<string> priority = new List<string>()
+            {
+                "Low",
+                "Medium",
+                "High",
+                "Critical"
+            };
+
+            List<string> priorityColors = new List<string>()
+            {
+                "#28384c",
+                "#366db6",
+                "#25ae88",
+                "#ed8a19"
+            };
+
+            List<string> users = new List<string>()
+            {
+                "Individual",
+                "Public"
+            };
+
+            List<string> roles = new List<string>()
+            {
+                "Front End developer",
+                "Network engineer",
+                "Project manager",
+                "Quality assurance",
+                "Software engineer",
+                "Team leader",
+                "Web developer"
+            };
+
+            return (await Firebase
+                 .Child("Tasks")
+                 .OnceAsync<Models.Task>()).Select(item => new AppTask
+                 {
+                     Id = item.Object.Id,
+                     TaskTitle = item.Object.TaskTitle,
+                     Role = roles[item.Object.RoleId],
+                     PriorityNumber = item.Object.Priority,
+                     Priority = priority[item.Object.Priority].ToLower() + ".png",
+                     User = item.Object.User,
+                     PriorityColor = priorityColors[item.Object.Priority],
+                     Deadline = item.Object.Deadline,
+                     DeadlineColor = (item.Object.Deadline < DateTime.Now) ? "#dd352e" : "#28384c",
+                 })
+                 .Where(x => (accessLevel >= 3) ? x.TaskTitle != "" : x.Role == roles[roleId])
+                 .OrderByDescending(x => x.PriorityNumber)
+                 .ToList();
+        }
+
+        public static async Task<List<AppTask>> GetCurrentTasksByAccessLevelAndRoleId(int accessLevel, int roleId)
         {
             List<string> priority = new List<string>()
             {
@@ -60,13 +120,16 @@ namespace TeamToDo.Helpers
                      Id = item.Object.Id,
                      TaskTitle = item.Object.TaskTitle,
                      Role = roles[item.Object.RoleId],
+                     PriorityNumber = item.Object.Priority,
                      Priority = priority[item.Object.Priority].ToLower() + ".png",
+                     User = item.Object.User,
                      PriorityColor = priorityColors[item.Object.Priority],
                      Deadline = item.Object.Deadline,
                      DeadlineColor = (item.Object.Deadline < DateTime.Now) ? "#dd352e" : "#28384c",
                  })
                  .Where(x => (accessLevel >= 3) ? x.TaskTitle != "" : x.Role == roles[roleId])
-                 .OrderBy(x => x.Priority)
+                 .Where(x => x.Deadline > DateTime.Now)
+                 .Where(x => x.User == "Public" || x.User == SessionState.CurrentUser.Username)
                  .ToList();
         }
 
