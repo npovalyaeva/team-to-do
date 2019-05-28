@@ -5,19 +5,6 @@
              NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <StackLayout>
-            <Label 
-            TextColor="#ed8a19" 
-            FontSize = "40" 
-            Text = "List of all users:"
-            Margin = "10" 
-            VerticalTextAlignment="Center" 
-            HorizontalTextAlignment="Center" >
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments = "x:String" >
-                        <On Platform="Android" Value = "OpenSans-Light.ttf#OpenSans-Light" />
-                    </OnPlatform>
-                </Label.FontFamily>
-            </Label>
             <ListView 
                 x:Name="UsersList"
                 HasUnevenRows="True"
@@ -29,21 +16,21 @@
                             <StackLayout Orientation="Vertical">
                                 <Label 
                                     TextColor="#366db6" 
-                                    FontSize = "24"
+                                    FontSize = "18"
                                     Text="{Binding Username}" >
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments = "x:String" >
-                                            <On Platform="Android" Value = "OpenSans-Light.ttf#OpenSans-Light" />
+                                            <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
                                 <Label 
                                     Text="{Binding Role}" 
                                     TextColor="#19354b" 
-                                    FontSize = "16">
+                                    FontSize = "14">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments = "x:String" >
-                                            <On Platform="Android" Value = "OpenSans-Light.ttf#OpenSans-Light" />
+                                            <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>

@@ -1,12 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TeamToDo.Pages.CreateTaskPage">
+             x:Class="TeamToDo.Pages.CreateTaskPage"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label 
+            x:Name="Label"
+            TextColor="#dd352e" 
+            FontSize = "30" 
+            Text = "New challenges mean new accomplishments."
+            Margin = "50" 
+            VerticalTextAlignment="Center" 
+            HorizontalTextAlignment="Center" >
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments = "x:String" >
+                        <On Platform="Android" Value = "OpenSans-Light.ttf#OpenSans-Light" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <Entry 
+            x:Name = "TaskEntry"
+            TextColor = "#28384c"
+            Placeholder = "Task"
+            Margin = "10" >
+                <Entry.FontFamily>
+                    <OnPlatform x:TypeArguments = "x:String">
+                        <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                    </OnPlatform>
+                </Entry.FontFamily>
+            </Entry>
+
+            <Picker
+            x:Name = "PriorityPicker"
+            Title="Priority"
+            TextColor = "#28384c" 
+            WidthRequest= "500"
+            Margin = "10">
+                <Picker.Items>
+                    <x:String>Low</x:String>
+                    <x:String>Medium</x:String>
+                    <x:String>High</x:String>
+                    <x:String>Critical</x:String>
+                </Picker.Items>
+            </Picker>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+                <DatePicker x:Name="DeadlineDatePicker" Format="D" HorizontalOptions="CenterAndExpand">
+                    <DatePicker.MaximumDate>1/01/2030</DatePicker.MaximumDate>
+                </DatePicker>
+                <TimePicker x:Name="DeadlineTimePicker"></TimePicker>
+            </StackLayout>
+            <Picker
+            x:Name = "RolePicker"
+            Title="Role"
+            TextColor = "#28384c" 
+            WidthRequest= "500"
+            Margin = "10">
+                <Picker.Items>
+                    <x:String>Front End developer</x:String>
+                    <x:String>Network engineer</x:String>
+                    <x:String>Project manager</x:String>
+                    <x:String>Quality assurance</x:String>
+                    <x:String>Software engineer</x:String>
+                    <x:String>Team leader</x:String>
+                    <x:String>Web developer</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button 
+            x:Name="CreateButton"
+            Text = "Create Task" 
+            Clicked = "CreateTask_Button_Clicked" 
+            BackgroundColor = "#366db6" 
+            TextColor = "#e7eced"
+            Margin = "10" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments = "x:String">
+                        <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+            <Button 
+            x:Name="CloseButton"
+            Text = "Close Task" 
+            Clicked = "CloseTask_Button_Clicked" 
+            BackgroundColor = "#dd352e" 
+            TextColor = "#e7eced"
+            Margin = "10" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments = "x:String">
+                        <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

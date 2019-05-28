@@ -1,11 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="TeamToDo.Pages.TasksListPage"
              NavigationPage.HasNavigationBar="false">
-    <RelativeLayout>
-        <StackLayout>
-        </StackLayout>
+    <StackLayout>
+        <Button 
+            x:Name="CreateNewTask"
+            Text = "Create new task" 
+            Clicked = "CreateNewTask_Button_Clicked" 
+            BackgroundColor = "#25ae88" 
+            TextColor = "#e7eced"
+            Margin = "10" >
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments = "x:String">
+                    <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                </OnPlatform>
+            </Button.FontFamily>
+        </Button>
+        <ListView 
+                x:Name="TasksList"
+                HasUnevenRows="True"
+                Margin="10"
+                ItemsSource="{Binding Tasks}"
+                ItemTapped="MainListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <abstractions:CircleImage 
+                                         Source ="{Binding Priority}" 
+                                         HeightRequest="20"
+                                         WidthRequest="20"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label 
+                                    TextColor="#28384c" 
+                                    FontSize = "18"
+                                    Text="{Binding TaskTitle}" >
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments = "x:String" >
+                                        <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+                            <Label 
+                                    Text="{Binding Role}" 
+                                    TextColor="#19354b" 
+                                    FontSize = "14">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments = "x:String" >
+                                        <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+                            <Label 
+                                    TextColor="{Binding DeadlineColor}" 
+                                    FontSize = "14"
+                                    Text="{Binding Deadline}" >
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments = "x:String" >
+                                        <On Platform="Android" Value = "OpenSans-LightItalic.ttf#OpenSans-LightItalic" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+                        </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button 
+            x:Name="Filter"
+            Text = "Filter" 
+            Clicked = "Filter_Button_Clicked" 
+            BackgroundColor = "#366db6" 
+            TextColor = "#e7eced"
+            Margin = "10" >
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments = "x:String">
+                    <On Platform="Android" Value = "OpenSans-Regular.ttf#OpenSans-Regular" />
+                </OnPlatform>
+            </Button.FontFamily>
+        </Button>
+    </StackLayout>
         
-    </RelativeLayout>
 </ContentPage>

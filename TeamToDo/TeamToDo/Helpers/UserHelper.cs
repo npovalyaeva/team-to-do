@@ -65,7 +65,7 @@ namespace TeamToDo.Helpers
                  .Child("Users")
                  .OnceAsync<User>()).Select(item => new AppUser
                  {
-                     Username = item.Object.Username,
+                     Username = item.Object.Username.ToUpper(),
                      Role = roles[item.Object.RoleId],
                      AccessLevel = accessModes[item.Object.AccessLevel]
                  }).ToList();
