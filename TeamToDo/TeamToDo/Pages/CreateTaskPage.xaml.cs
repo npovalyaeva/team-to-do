@@ -88,6 +88,7 @@ namespace TeamToDo.Pages
                 RoleId = roleId,
                 Priority = priority,
                 User = user,
+                Username = SessionState.CurrentUser.Username,
                 Deadline = deadlineDateTime,
             };
 

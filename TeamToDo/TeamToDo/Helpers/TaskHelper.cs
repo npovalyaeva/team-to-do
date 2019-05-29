@@ -75,12 +75,14 @@ namespace TeamToDo.Helpers
                      PriorityNumber = item.Object.Priority,
                      Priority = priority[item.Object.Priority].ToLower() + ".png",
                      User = item.Object.User,
+                     Username = item.Object.Username,
                      PriorityColor = priorityColors[item.Object.Priority],
                      Deadline = item.Object.Deadline,
                      DeadlineColor = (item.Object.Deadline < DateTime.Now) ? "#dd352e" : "#28384c",
                  })
                  .Where(x => (accessLevel >= 3) ? x.TaskTitle != "" : x.Role == roles[roleId])
                  .OrderByDescending(x => x.PriorityNumber)
+                 .Where(x => x.User == "Public" || x.Username == SessionState.CurrentUser.Username)
                  .ToList();
         }
 
@@ -123,13 +125,14 @@ namespace TeamToDo.Helpers
                      PriorityNumber = item.Object.Priority,
                      Priority = priority[item.Object.Priority].ToLower() + ".png",
                      User = item.Object.User,
+                     Username = item.Object.Username,
                      PriorityColor = priorityColors[item.Object.Priority],
                      Deadline = item.Object.Deadline,
                      DeadlineColor = (item.Object.Deadline < DateTime.Now) ? "#dd352e" : "#28384c",
                  })
                  .Where(x => (accessLevel >= 3) ? x.TaskTitle != "" : x.Role == roles[roleId])
                  .Where(x => x.Deadline > DateTime.Now)
-                 .Where(x => x.User == "Public" || x.User == SessionState.CurrentUser.Username)
+                 .Where(x => x.User == "Public" || x.Username == SessionState.CurrentUser.Username)
                  .ToList();
         }
 

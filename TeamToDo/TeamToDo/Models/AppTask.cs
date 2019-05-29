@@ -23,5 +23,7 @@ namespace TeamToDo.Models
         public string DeadlineColor { get; set; }
 
         public string User { get; set; }
+
+        public string Username { get; set; }
     }
 }

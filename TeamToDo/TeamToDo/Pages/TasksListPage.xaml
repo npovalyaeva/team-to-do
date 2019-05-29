@@ -63,7 +63,27 @@
                                     </OnPlatform>
                                 </Label.FontFamily>
                             </Label>
-                        </StackLayout>
+                                <Label 
+       
+                                    FontSize = "14"
+                                    Text="{Binding Deadline}" >
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments = "x:String" >
+                                            <On Platform="Android" Value = "OpenSans-LightItalic.ttf#OpenSans-LightItalic" />
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                                <Label 
+                                    TextColor="{Binding DeadlineColor}" 
+                                    FontSize = "14"
+                                    Text="{Binding Deadline}" >
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments = "x:String" >
+                                            <On Platform="Android" Value = "OpenSans-LightItalic.ttf#OpenSans-LightItalic" />
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
